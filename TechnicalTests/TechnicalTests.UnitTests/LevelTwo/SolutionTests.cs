@@ -21,6 +21,7 @@ namespace TechnicalTests.UnitTests.LevelTwo
         [TestCase(42, "4 8 9 + 3 2 * - * 2 -")]
         public void Calculate_Should_Return_RPN_Result(int expected, string operations)
         {
+            //Assert.Inconclusive();
             int result = TechnicalTests.LevelTwo.Solution.Calculate(operations);
             result.Should().Be(expected);
         }

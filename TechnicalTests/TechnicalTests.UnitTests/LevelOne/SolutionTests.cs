@@ -9,6 +9,7 @@ namespace TechnicalTests.UnitTests.LevelOne
         [Test]
         public void GetMagicNumber_Should_Return_Correct_Value()
         {
+            //Assert.Inconclusive();
             int result = TechnicalTests.LevelOne.Solution.GetMagicNumber();
             result.Should().Be(78576);
         }
