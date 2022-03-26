@@ -16,7 +16,7 @@ namespace TechnicalTests.UnitTests.LevelOne
         [Test]
         public void GetSuperMagicNumber_Should_Return_Correct_Value()
         {
-            Assert.Inconclusive();
+            //Assert.Inconclusive();
             int result = TechnicalTests.LevelOne.Solution.GetSuperMagicNumber();
             result.Should().Be(3902304);
         }

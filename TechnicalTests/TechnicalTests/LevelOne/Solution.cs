@@ -71,13 +71,13 @@
                     if (char.ToLower(letter) == c)
                     {
                         numberLetter++;
-                        linePositions += i;
+                        linePositions += i+1;
                     }
                     return linePositions;
                 });
                 positionsSum += positions.Aggregate(0, (acc, p) => acc + p);
             }
-            return numberLetter * positionsSum / numberLetter * factor;
+            return positionsSum * factor;
         }
     }
 }
