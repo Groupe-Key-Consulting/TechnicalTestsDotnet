@@ -1,4 +1,4 @@
-﻿using System.Globalization;
+﻿using TechnicalTests.LevelThree.Services;
 
 namespace TechnicalTests.LevelThree
 {
@@ -39,7 +39,11 @@ namespace TechnicalTests.LevelThree
         }
 
         private static IDictionary<string, Func<string, string>> commands = new Dictionary<string, Func<string, string>>();
-        private static Func<string, string>[] cmds = { Hello, Add, Print, List };
+        private static Func<string, string>[] cmds = { Hello, Add, Print, List, Coffee.GetCoffee };
+
+
+        private static IDictionary<string, Func<string, int>> commandsInt = new Dictionary<string, Func<string, int>>();
+        private static Func<string, int>[] cmdsInt = { Coffee.GetSugar };
 
         public static void Init()
         {
@@ -48,6 +52,11 @@ namespace TechnicalTests.LevelThree
                 foreach (Func<string, string> cmd in cmds)
                 {
                     commands.Add(cmd.Method.Name, cmd);
+                }
+
+                foreach (Func<string, int> cmd in cmdsInt)
+                {
+                    commandsInt.Add(cmd.Method.Name, cmd);
                 }
             }
         }
@@ -60,14 +69,16 @@ namespace TechnicalTests.LevelThree
             int index = idx != -1 ? idx : command.Length;
             string cmd = command.Substring(0, index);
 
-            if (!commands.ContainsKey(cmd))
+            if (!commands.ContainsKey(cmd) && !commandsInt.ContainsKey(cmd))
             {
                 string errorMessage = "Error, command " + cmd + " not found";
                 Console.WriteLine(errorMessage);
                 return errorMessage;
             }
 
-            return commands[cmd](command);
+            if(commands.ContainsKey(cmd)) return commands[cmd](command);
+
+            return commandsInt[cmd](command).ToString();
         }
     }
 

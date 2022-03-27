@@ -27,5 +27,19 @@ namespace TechnicalTests.UnitTests.LevelThree
             string result = TechnicalTests.LevelThree.LevelThree.Execute(command);
             result.Should().Be(expected);
         }
+
+        [TestCase("Here is some coffee, 2 cups exactly!", "GetCoffee 2")]
+        public void GetCoffee_Command_Should_Return_String(string expected, string command)
+        {
+            string result = TechnicalTests.LevelThree.LevelThree.Execute(command);
+            result.Should().Be(expected);
+        }
+
+        [TestCase("2", "GetSugar 2")]
+        public void GetSugar_Command_Should_Return_Correct_String(string expected, string command)
+        {
+            string result = TechnicalTests.LevelThree.LevelThree.Execute(command);
+            result.Should().Be(expected);
+        }
     }
 }

@@ -9,7 +9,7 @@
         }
 
         /// <summary>
-        /// Returns result in string format.
+        /// Returns result of reverse polish notation in string format.
         /// </summary>
         /// <param name="operations">String of operands and operators, separated by comas and formated for reverse polish notation.</param>
         /// <returns>Result of operations in string format.</returns>
